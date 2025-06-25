@@ -7,7 +7,6 @@
 import React, { RefObject, useRef } from 'react';
 import SectionHeader from './SectionHeader';
 import ExperienceItem from './ExperienceItem';
-import PublicationsCarousel, { PublicationsCarouselHandle } from './PublicationsCarousel';
 import {
   GraduationCapIcon,
   ClipboardIcon,
@@ -17,7 +16,6 @@ import {
   LightbulbIcon,
   HeartIcon,
   SettingsIcon,
-  ChevronRightIcon
 } from '../utils/icons';
 import {
   EDUCATION_DATA,
@@ -53,8 +51,6 @@ interface CVSectionProps {
   isExpanded: (section: string) => boolean;
   /** Function to toggle section expansion */
   toggleSection: (section: string) => void;
-  /** Whether publications section is active (for carousel) */
-  publicationsActive?: boolean;
 }
 
 // Helper to parse dateRange for sorting (expects formats like 'May 2025', 'June 2025', 'Mar 2023', etc.)
@@ -71,10 +67,8 @@ export default function CVSection({
   activeSection,
   isExpanded,
   toggleSection,
-  publicationsActive,
 }: CVSectionProps) {
   const iconColor = '#18181A';
-  const carouselRef = useRef<PublicationsCarouselHandle>(null);
 
   return (
     <section id="cv-section" className="w-full flex justify-center">

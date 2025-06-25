@@ -33,10 +33,10 @@ export default function ExperienceItem({
     <div className={`mb-8 ${className}`}>
       <div className="flex flex-row justify-between items-start md:items-center w-full">
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mb-1 leading-snug md:mb-2 md:leading-tight">
             <span className="font-bold">{organization}</span>
           </div>
-          <div className="text-foreground/80 text-sm">
+          <div className="text-foreground/80 text-sm mb-1 leading-snug md:mb-2 md:leading-tight">
             <span className="italic">{role}</span>
           </div>
           {specialty && (

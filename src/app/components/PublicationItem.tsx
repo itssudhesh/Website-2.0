@@ -42,23 +42,19 @@ export default function PublicationItem({
   );
 
   return (
-    <div className={`mb-0 ${className}`}>
-      <div className="flex flex-row justify-between items-start md:items-center w-full">
-        <div className="flex-1 min-w-0 flex flex-col -ml-3">
-          <div className="flex flex-col min-h-[64px] justify-start">
-            <div className="flex items-center gap-2">
-              {TitleComponent}
-            </div>
-            <div className="text-foreground/80 text-sm mt-1">
-              {authors}. <span className="italic">{journal}. {date}</span>
-            </div>
-          </div>
-          {studyType && (
-            <span className="inline-block mt-3 px-3 py-0.5 rounded-full bg-neutral-200 text-black border border-neutral-300 text-xs font-medium w-auto max-w-max">
-              {studyType}
-            </span>
-          )}
+    <div className={`mb-8 ${className}`}>
+      <div className="flex-1 min-w-0">
+        <div className="font-bold leading-tight sm:leading-snug mb-2 block text-lg md:text-2xl text-black">
+          {TitleComponent}
         </div>
+        <div className="text-foreground/80 text-sm">
+          {authors}. <span className="italic">{journal}. {date}</span>
+        </div>
+        {studyType && (
+          <span className="inline-block px-3 py-0.5 rounded-full bg-neutral-200 text-black border border-neutral-300 text-xs font-medium w-auto max-w-max mt-2">
+            {studyType}
+          </span>
+        )}
       </div>
     </div>
   );

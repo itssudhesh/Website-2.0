@@ -4,7 +4,7 @@
  */
 "use client";
 
-import { RefObject, useRef } from 'react';
+import React, { RefObject, useRef } from 'react';
 import SectionHeader from './SectionHeader';
 import ExperienceItem from './ExperienceItem';
 import PublicationsCarousel, { PublicationsCarouselHandle } from './PublicationsCarousel';
@@ -30,6 +30,7 @@ import {
   SKILLS_DATA
 } from '../constants/cvData';
 import Image from 'next/image';
+import PublicationItem from './PublicationItem';
 
 interface SectionRefs {
   aboutRef: RefObject<HTMLElement | null>;
@@ -188,18 +189,24 @@ export default function CVSection({
               title="Publications"
               icon={<BookIcon color={iconColor} draw={activeSection === 'publications'} />}
             />
-            {PUBLICATIONS_DATA.length > 1 && (
-              <button
-                onClick={() => activeSection === 'publications' && carouselRef.current?.nextSlide()}
-                className="bg-background/80 hover:bg-background/90 rounded-full p-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110"
-                aria-label="Next publication"
-                disabled={activeSection !== 'publications'}
-              >
-                <ChevronRightIcon color="currentColor" size={20} />
-              </button>
+          </div>
+          <div className="space-y-6">
+            {PUBLICATIONS_DATA.length === 0 ? (
+              <div className="text-center text-foreground/60">No publications available</div>
+            ) : (
+              PUBLICATIONS_DATA.map((publication, index) => (
+                <PublicationItem
+                  key={index}
+                  title={publication.title}
+                  authors={publication.authors}
+                  journal={publication.journal}
+                  date={publication.date}
+                  link={publication.link}
+                  studyType={publication.studyType}
+                />
+              ))
             )}
           </div>
-          <PublicationsCarousel ref={carouselRef} publications={PUBLICATIONS_DATA} isActive={publicationsActive !== undefined ? publicationsActive : activeSection === 'publications'} />
         </section>
 
         {/* Presentations Section */}
@@ -294,7 +301,7 @@ export default function CVSection({
             icon={<SettingsIcon color={iconColor} draw={activeSection === 'skills'} />}
           />
           
-          <div className="ml-2 text-foreground/80 text-[15px]">
+          <div className="ml-2 text-foreground/80 text-[15px] leading-tight md:leading-loose">
             {SKILLS_DATA}
           </div>
         </section>

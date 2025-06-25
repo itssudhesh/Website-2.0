@@ -74,7 +74,6 @@ export default function CVPage() {
         activeSection={activeSection}
         isExpanded={isExpanded}
         toggleSection={toggleSection}
-        publicationsActive={activeSection === 'publications'}
       />
     </>
   );

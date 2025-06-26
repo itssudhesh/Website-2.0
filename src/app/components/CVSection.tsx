@@ -4,7 +4,7 @@
  */
 "use client";
 
-import React, { RefObject } from 'react';
+import React, { RefObject, useState, useEffect } from 'react';
 import SectionHeader from './SectionHeader';
 import ExperienceItem from './ExperienceItem';
 import {
@@ -70,6 +70,58 @@ export default function CVSection({
 }: CVSectionProps) {
   const iconColor = '#18181A';
 
+  // Per-item expanded state for extracurriculars
+  const [expandedExtracurriculars, setExpandedExtracurriculars] = useState<{ [key: number]: boolean }>({});
+  const handleExtracurricularClick = (idx: number) => {
+    if (!isExpanded('extracurriculars')) {
+      setExpandedExtracurriculars((prev) => ({ ...prev, [idx]: !prev[idx] }));
+    }
+  };
+  useEffect(() => {
+    if (!isExpanded('extracurriculars')) {
+      setExpandedExtracurriculars({});
+    }
+  }, [isExpanded('extracurriculars')]);
+
+  // Per-item expanded state for community
+  const [expandedCommunity, setExpandedCommunity] = useState<{ [key: number]: boolean }>({});
+  const handleCommunityClick = (idx: number) => {
+    if (!isExpanded('community')) {
+      setExpandedCommunity((prev) => ({ ...prev, [idx]: !prev[idx] }));
+    }
+  };
+  useEffect(() => {
+    if (!isExpanded('community')) {
+      setExpandedCommunity({});
+    }
+  }, [isExpanded('community')]);
+
+  // Per-item expanded state for clinical
+  const [expandedClinical, setExpandedClinical] = useState<{ [key: number]: boolean }>({});
+  const handleClinicalClick = (idx: number) => {
+    if (!isExpanded('clinical')) {
+      setExpandedClinical((prev) => ({ ...prev, [idx]: !prev[idx] }));
+    }
+  };
+  useEffect(() => {
+    if (!isExpanded('clinical')) {
+      setExpandedClinical({});
+    }
+  }, [isExpanded('clinical')]);
+
+  // Per-item expanded state for education
+  const [expandedEducation, setExpandedEducation] = useState<{ [key: number]: boolean }>({});
+  const handleEducationClick = (idx: number) => {
+    if (!isExpanded('education')) {
+      setExpandedEducation((prev) => ({ ...prev, [idx]: !prev[idx] }));
+    }
+  };
+  useEffect(() => {
+    if (!isExpanded('education')) {
+      setExpandedEducation({});
+    }
+  }, [isExpanded('education')]);
+
   return (
     <section id="cv-section" className="w-full flex justify-center">
       <div className="w-full max-w-5xl mx-auto mt-16 px-5 py-14 rounded-2xl">
@@ -109,7 +161,8 @@ export default function CVSection({
               role={education.role}
               dateRange={education.dateRange}
               achievements={education.achievements}
-              expanded={isExpanded('education')}
+              expanded={isExpanded('education') || !!expandedEducation[index]}
+              onClick={() => handleEducationClick(index)}
             />
           ))}
         </section>
@@ -166,7 +219,8 @@ export default function CVSection({
                 role={experience.role}
                 dateRange={experience.dateRange}
                 achievements={experience.achievements}
-                expanded={isExpanded('clinical')}
+                expanded={isExpanded('clinical') || !!expandedClinical[index]}
+                onClick={() => handleClinicalClick(index)}
                 specialty={experience.specialty}
               />
             ))}
@@ -262,7 +316,8 @@ export default function CVSection({
               role={activity.role}
               dateRange={activity.dateRange}
               achievements={activity.achievements}
-              expanded={isExpanded('extracurriculars')}
+              expanded={isExpanded('extracurriculars') || !!expandedExtracurriculars[index]}
+              onClick={() => handleExtracurricularClick(index)}
             />
           ))}
         </section>
@@ -288,7 +343,8 @@ export default function CVSection({
               role={service.role}
               dateRange={service.dateRange}
               achievements={service.achievements}
-              expanded={isExpanded('community')}
+              expanded={isExpanded('community') || !!expandedCommunity[index]}
+              onClick={() => handleCommunityClick(index)}
             />
           ))}
         </section>

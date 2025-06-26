@@ -4,7 +4,7 @@
  */
 "use client";
 
-import React, { RefObject, useState } from 'react';
+import React, { RefObject } from 'react';
 import SectionHeader from './SectionHeader';
 import ExperienceItem from './ExperienceItem';
 import {

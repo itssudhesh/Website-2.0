@@ -192,3 +192,13 @@ img[src="/favicon.ico"]:not(.topbar-logo) {
   color: #18181A !important;
   text-decoration: underline !important;
 }
+
+/* Hide hand cursor on clickable elements when custom dot cursor is active */
+body[style*='cursor: none'] a,
+body[style*='cursor: none'] button,
+body[style*='cursor: none'] [role='button'],
+body[style*='cursor: none'] input[type='button'],
+body[style*='cursor: none'] input[type='submit'],
+body[style*='cursor: none'] input[type='reset'] {
+  cursor: none !important;
+}

@@ -93,7 +93,7 @@ export const CLINICAL_DATA = [
     achievements: []
   },
   {
-    organization: 'M Health Fairview Minnesota, USA',
+    organization: 'M Health Fairview, Minnesota, USA',
     role: 'Dr Ayesha Rashid, MD',
     dateRange: 'June 2025',
     setting: 'both' as const,
@@ -107,7 +107,7 @@ export const CLINICAL_DATA = [
   {
     organization: 'Advocate Aurora Health, USA',
     role: 'Dr. Arvind Maheshwari, MD',
-    dateRange: 'May 2023',
+    dateRange: 'April 2025',
     setting: 'both' as const,
     specialty: 'Endocrinology',
     achievements: [

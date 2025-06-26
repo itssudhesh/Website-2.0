@@ -33,7 +33,7 @@ export default function PublicationItem({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="font-bold !text-black hover:text-foreground/60 transition-colors duration-200 cursor-pointer text-sm md:text-base leading-tight mb-1 block"
+      className="font-bold cv-link-black transition-colors duration-200 cursor-pointer text-sm md:text-base leading-tight mb-1 block"
     >
       {title}
     </a>

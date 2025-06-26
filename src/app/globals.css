@@ -182,3 +182,13 @@ img[src="/favicon.ico"]:not(.topbar-logo) {
   opacity: 1;
   transition: transform 0.5s, opacity 0.5s;
 }
+
+/* Force black color and underline on hover for presentation and publication title links */
+.cv-link-black {
+  color: #18181A !important;
+  text-decoration: none !important;
+}
+.cv-link-black:hover {
+  color: #18181A !important;
+  text-decoration: underline !important;
+}

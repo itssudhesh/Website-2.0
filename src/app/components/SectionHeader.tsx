@@ -36,21 +36,20 @@ export default function SectionHeader({
         <button
           type="button"
           onClick={onToggle}
-          className="text-sm text-foreground/70 hover:text-foreground transition-colors flex items-center gap-1"
+          className="flex items-center justify-center w-6 h-6 rounded-full bg-black hover:bg-neutral-800 transition-colors"
         >
-          <span>{expanded ? 'Collapse' : 'Expand'}</span>
-          <svg 
-            className={`inline-block transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`} 
-            width="14" 
-            height="14" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
+          <svg
+            className={`inline-block transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            strokeWidth="2"
+            strokeLinecap="round"
             strokeLinejoin="round"
           >
-            <polyline points="6 9 12 15 18 9"/>
+            <polyline points="6 9 12 15 18 9" />
           </svg>
         </button>
       )}

@@ -4,7 +4,7 @@
  */
 "use client";
 
-import React, { RefObject } from 'react';
+import React, { RefObject, useState } from 'react';
 import SectionHeader from './SectionHeader';
 import ExperienceItem from './ExperienceItem';
 import {
@@ -216,18 +216,27 @@ export default function CVSection({
           
           <div className="space-y-6">
             {PRESENTATIONS_DATA.map((presentation, index) => (
-              <div key={index} className="mb-8">
-                <div className="flex flex-row justify-between items-start md:items-center w-full">
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="font-bold leading-tight sm:leading-snug mb-2 block">{presentation.title}</span>
-                    </div>
-                    <div className="text-foreground/80 text-sm">
-                      {presentation.authors}. <span className="italic">{presentation.venue}. {presentation.date}</span>
+                <div key={index} className="mb-8">
+                  <div className="flex flex-row justify-between items-start md:items-center w-full">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <a
+                          href="https://docs.google.com/presentation/d/1c8eF13AhJcg9MuWdo7115NLcCATjmghl/edit?slide=id.p1#slide=id.p1"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-bold leading-tight sm:leading-snug mb-2 block text-left cv-link-black focus:outline-none"
+                          style={{ cursor: 'pointer', fontWeight: 700 }}
+                          aria-label="Open Presentation in new tab"
+                        >
+                          {presentation.title}
+                        </a>
+                      </div>
+                      <div className="text-foreground/80 text-sm">
+                        {presentation.authors}. <span className="italic">{presentation.venue}. {presentation.date}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
             ))}
           </div>
         </section>

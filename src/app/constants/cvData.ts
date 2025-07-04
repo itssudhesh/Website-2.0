@@ -105,18 +105,6 @@ export const CLINICAL_DATA = [
     ]
   },
   {
-    organization: 'Advocate Aurora Health, USA',
-    role: 'Dr. Arvind Maheshwari, MD',
-    dateRange: 'April 2025',
-    setting: 'both' as const,
-    specialty: 'Endocrinology',
-    achievements: [
-      'Managed up to four patients on the floor. Conducted thorough patient evaluations and figured out the assessment plans before proposing them to the team. Collaborated care between different teams and ensured seamless handoffs.',
-      'Presented topics including MEN syndrome and Polyglandular Autoimmune Syndrome to the team, and regularly attended educational sessions.',
-      'Worked on a research project about "Pancreatic Surgery and Risk of Post-Pancreatectomy Diabetes: Can we identify patients earlier?". Collected and analyzed the data. Prepared the manuscript which is under review currently.'
-    ]
-  },
-  {
     organization: 'Mayo Clinic, Rochester, USA',
     role: 'Dr. Karina Keogh, MD and Dr. Eric Olson, MD',
     dateRange: 'Mar 2023',
